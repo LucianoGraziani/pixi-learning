@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {IndexLink} from 'react-router';
 import PIXI from 'pixi.js';
 
-export default class Ex1 extends React.Component {
+export default class Ex01 extends React.Component {
   componentDidMount() {
     let renderelement = ReactDOM.findDOMNode(this.refs.renderer);
 

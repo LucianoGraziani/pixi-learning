@@ -79,7 +79,7 @@ export default {
         include: /node_modules/,
       }, {
         test: /\.json$/,
-        loaders: ['json'],
+        loaders: ['file'],
       },
     ],
   },

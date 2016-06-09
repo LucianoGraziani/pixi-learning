@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {IndexLink} from 'react-router';
-import PIXI, {Sprite, Container} from 'pixi.js';
+import PIXI, {loader as pixiLoader, Sprite, Container} from 'pixi.js';
 
-export default class Ex2 extends React.Component {
+export default class Ex04 extends React.Component {
   componentDidMount() {
     let renderelement = ReactDOM.findDOMNode(this.refs.renderer);
 
@@ -27,20 +27,38 @@ export default class Ex2 extends React.Component {
     var cat;
 
     setTimeout(() => {
-      PIXI.loader.add(require('images/cat.png')).load(function setup() {
-         cat = new Sprite(PIXI.loader.resources[require('images/cat.png')].texture);
+      pixiLoader.add(require('images/cat.png')).load(function setup() {
+        cat = new Sprite(pixiLoader.resources[require('images/cat.png')].texture);
+
+        // Positioning
+        cat.position.set(96, 96);
 
         //Add the cat to the stage
         stage.addChild(cat);
 
         renderer.render(stage);
       });
-    }, 3000);
+    }, 1000);
 
     setTimeout(() => {
-      cat.visible = false;
+      // Scalling
+      cat.scale.set(2, 2);
       renderer.render(stage);
-    }, 5000);
+    }, 2000);
+
+    setTimeout(() => {
+      // Scalling
+      cat.anchor.set(0.5, 0.5);
+      cat.rotation = 0.5;
+      renderer.render(stage);
+    }, 3000);
+  }
+
+  componentWillMount() {
+    pixiLoader.reset();
+  }
+  componentWillUnmount() {
+    pixiLoader.reset();
   }
 
   render() {
@@ -56,7 +74,14 @@ export default class Ex2 extends React.Component {
           width: '300px'
         }}>
           <IndexLink to='/'>Return</IndexLink>
-          <div>Pixi’s autoDetectRenderer method figures out whether to use the Canvas Drawing API or WebGL to render graphics, depending on which is available</div>
+          <div>
+            <h4>Added:</h4>
+            <ul>
+              <li>Sprite positioning</li>
+              <li>Sprite scalling</li>
+              <li>Sprite rotation: (anchor) has its values in radians; (pivot) has its values in px.</li>
+            </ul>
+          </div>
         </div>
         <div style={{
           clear: 'both'

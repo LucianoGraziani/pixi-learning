@@ -8,6 +8,7 @@
 *.txt eol=lf
 *.md eol=lf
 *.js eol=lf
+*.jsx eol=lf
 *.php eol=lf
 *.html eol=lf
 *.json eol=lf
