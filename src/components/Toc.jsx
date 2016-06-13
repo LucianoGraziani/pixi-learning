@@ -26,6 +26,12 @@ var Toc = () => {
             <IndexLink to='/ex07-dungeon-random-blobs'>Example 07: Adding blobs on random places of the dungeon</IndexLink>
           </li>
         </ul>
+        <li><h3>Pixi motion</h3></li>
+        <ul>
+          <li>
+              <IndexLink to='/ex08-basic-movement'>Example 08: Basic movement</IndexLink>
+          </li>
+        </ul>
       </ul>
     </div>
   );
