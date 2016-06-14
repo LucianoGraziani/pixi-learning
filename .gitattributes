@@ -18,6 +18,7 @@
 *.example eol=lf
 .gitattributes eol=lf
 .gitignore eol=lf
+.eslintrc eol=lf
 artisan eol=lf
 *.css eol=lf
 *.scss eol=lf
