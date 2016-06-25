@@ -23,6 +23,7 @@ env:
 rules:
   comma-dangle: [1, always-multiline]
   eol-last: 0
+  import/no-unresolved: 0 # TODO delete and make it work with webpack
   indent: [2, tab]
   jsx-quotes: 1
   no-alert: 0

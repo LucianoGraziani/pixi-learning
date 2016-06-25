@@ -16,11 +16,22 @@ let treasureHunter,
 	treasure,
 	door;
 
-function gameLoop() {
-	explorer.x += 1;
+function state() {
+	explorer.vx = 0.5;
+	explorer.vy = 0.5;
+	explorer.x += explorer.vx;
+	explorer.y += explorer.vy;
+}
 
-	renderer.render(stage);
+function gameLoop() {
+	// Loop this function 60 times per second
 	requestId = requestAnimationFrame(gameLoop);
+
+	//Update the current game state:
+	state();
+
+	//Render the stage
+	renderer.render(stage);
 }
 
 export default class Ex08 extends React.Component {
@@ -56,6 +67,8 @@ export default class Ex08 extends React.Component {
 			explorer = new Sprite(treasureHunter['explorer.png']);
 			explorer.x = 68;
 			explorer.y = stage.height / 2 - explorer.height / 2;
+			explorer.vx = 0;
+			explorer.vy = 0;
 			stage.addChild(explorer);
 
 			treasure = new Sprite(treasureHunter['treasure.png']);
@@ -110,7 +123,7 @@ export default class Ex08 extends React.Component {
 					<div>
 						<h4>Added:</h4>
 						<ul>
-							<li>Automatic movement to explorer</li>
+							<li>Refactored loop for state() game.</li>
 						</ul>
 					</div>
 				</div>
