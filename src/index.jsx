@@ -16,23 +16,24 @@ import Ex09 from 'components/exs/Ex09';
 import Ex10 from 'components/exs/Ex10';
 import Ex11 from 'components/exs/Ex11';
 import Ex12 from 'components/exs/Ex12';
+import routes from 'constants/routes';
 
 ReactDOM.render(
 	<Router history={browserHistory}>
 	<Route path="/" component={Main}>
 		<IndexRoute component={Toc}/>
 
-		<Route path="ex01-renderer" component={Ex01}/>
-		<Route path="ex02-texture-cache" component={Ex02}/>
-		<Route path="ex03-load-progress" component={Ex03}/>
-		<Route path="ex04-positioning-sprites" component={Ex04}/>
-		<Route path="ex05-tileset-sprites" component={Ex05}/>
-		<Route path="ex06-texture-atlas" component={Ex06}/>
-		<Route path="ex07-dungeon-random-blobs" component={Ex07}/>
-		<Route path="ex08-basic-movement" component={Ex08}/>
-		<Route path="ex09-velocity-props" component={Ex09}/>
-		<Route path="ex10-game-states" component={Ex10}/>
-		<Route path="ex11-keyboard-events" component={Ex11}/>
-		<Route path="ex12-local-global-positions" component={Ex12}/>
+		<Route path={routes.EX1} component={Ex01}/>
+		<Route path={routes.EX2} component={Ex02}/>
+		<Route path={routes.EX3} component={Ex03}/>
+		<Route path={routes.EX4} component={Ex04}/>
+		<Route path={routes.EX5} component={Ex05}/>
+		<Route path={routes.EX6} component={Ex06}/>
+		<Route path={routes.EX7} component={Ex07}/>
+		<Route path={routes.EX8} component={Ex08}/>
+		<Route path={routes.EX9} component={Ex09}/>
+		<Route path={routes.EX10} component={Ex10}/>
+		<Route path={routes.EX11} component={Ex11}/>
+		<Route path={routes.EX12} component={Ex12}/>
 	</Route>
 </Router>, document.getElementById('app'));

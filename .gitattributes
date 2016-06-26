@@ -22,6 +22,7 @@
 artisan eol=lf
 *.css eol=lf
 *.scss eol=lf
+*.yml eol=lf
 
 # Ensure those won't be messed up with
 *.jpg binary

@@ -1,49 +1,29 @@
 import React from 'react';
-import {IndexLink} from 'react-router';
+
+import TocElement from 'components/TocElement';
+import TocGroup from 'components/TocGroup';
+import routes from 'constants/routes';
 
 const Toc = () => {
 	return (
 		<div className="top-bar">
 			<ul className="menu">
-				<li>
-					<IndexLink to="/ex01-renderer">Example 01: Creating the renderer and stage</IndexLink>
-				</li>
-				<li><h3>Pixi sprites</h3></li>
-				<ul>
-					<li>
-						<IndexLink to="/ex02-texture-cache">Example 02: Loading images into the texture cache</IndexLink>
-					</li>
-					<li>
-						<IndexLink to="/ex03-load-progress">Example 03: Monitoring load progress</IndexLink>
-					</li>
-					<li>
-						<IndexLink to="/ex04-positioning-sprites">Example 04: Positioning sprites</IndexLink>
-					</li>
-					<li>
-						<IndexLink to="/ex05-tileset-sprites">Example 05: TileSet sub-images</IndexLink>
-					</li>
-					<li>
-						<IndexLink to="/ex07-dungeon-random-blobs">Example 07: Adding blobs on random places of the dungeon</IndexLink>
-					</li>
-				</ul>
-				<li><h3>Pixi motion</h3></li>
-				<ul>
-					<li>
-							<IndexLink to="/ex08-basic-movement">Example 08: Basic movement</IndexLink>
-					</li>
-					<li>
-							<IndexLink to="/ex09-velocity-props">Example 09: Using velocity properties</IndexLink>
-					</li>
-				</ul>
-				<li>
-					<IndexLink to="/ex10-game-states">Example 10: Game state</IndexLink>
-				</li>
-				<li>
-					<IndexLink to="/ex11-keyboard-events">Example 11: Keyboard events</IndexLink>
-				</li>
-				<li>
-					<IndexLink to="/ex12-local-global-positions">Example 12: Local and global position check</IndexLink>
-				</li>
+				<TocElement link={routes.EX1} description="Example 01: Creating the renderer and stage"/>
+				<TocGroup title="Pixi sprites">
+					<TocElement link={routes.EX2} description="Example 02: Loading images into the texture cache"/>
+					<TocElement link={routes.EX3} description="Example 03: Monitoring load progress"/>
+					<TocElement link={routes.EX4} description="Example 04: Positioning sprites"/>
+					<TocElement link={routes.EX5} description="Example 05: TileSet sub-images"/>
+					<TocElement link={routes.EX6} description="Example 06: Work with Texture Atlas"/>
+					<TocElement link={routes.EX7} description="Example 07: Adding blobs on random places of the dungeon"/>
+				</TocGroup>
+				<TocGroup title="Pixi motion">
+					<TocElement link={routes.EX8} description="Example 08: Basic movement"/>
+					<TocElement link={routes.EX9} description="Example 09: Using velocity properties"/>
+				</TocGroup>
+				<TocElement link={routes.EX10} description="Example 10: Game state"/>
+				<TocElement link={routes.EX11} description="Example 11: Keyboard events"/>
+				<TocElement link={routes.EX12} description="Example 12: Local and global position check"/>
 			</ul>
 		</div>
 	);
