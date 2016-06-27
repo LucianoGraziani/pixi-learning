@@ -25,7 +25,7 @@ function gameLoop() {
 	requestId = requestAnimationFrame(gameLoop);
 }
 
-export default class Ex08 extends React.Component {
+export default class Ex09 extends React.Component {
 	componentWillMount() {
 		pixiLoader.reset();
 	}

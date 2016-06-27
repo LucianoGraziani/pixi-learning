@@ -34,7 +34,7 @@ function gameLoop() {
 	renderer.render(stage);
 }
 
-export default class Ex08 extends React.Component {
+export default class Ex10 extends React.Component {
 	componentWillMount() {
 		pixiLoader.reset();
 	}

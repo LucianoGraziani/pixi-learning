@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
-const TocElement = ({title, children}) => {
+const TocGroup = ({title, children}) => {
 	return (
 		<li>
 			<h3>{title}</h3>
@@ -10,5 +10,9 @@ const TocElement = ({title, children}) => {
 		</li>
 	);
 };
+TocGroup.propTypes = {
+	title: PropTypes.string.isRequired,
+	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+};
 
-export default TocElement;
+export default TocGroup;

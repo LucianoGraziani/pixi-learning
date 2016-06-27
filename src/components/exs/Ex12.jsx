@@ -29,7 +29,10 @@ function everclick() {
 	console.log(`The explorer is (${localPos.x},${localPos.y}) px near the treasure.`);
 }
 //Capture the keyboard arrow keys
-let left, right, up, down;
+let left,
+	right,
+	up,
+	down;
 
 function state() {
 	explorer.x += explorer.vx;
@@ -47,38 +50,35 @@ function gameLoop() {
 	renderer.render(stage);
 }
 
-export default class Ex08 extends React.Component {
+export default class Ex12 extends React.Component {
 	componentWillMount() {
 		pixiLoader.reset();
 	}
-	componentDidMount() {left = Keyboard(37,
-		() => explorer.vx = -1,
-		() => {
-			explorer.vx = !right.isDown ? 0 : explorer.vx;
+	componentDidMount() {
+		left = Keyboard(37, () => explorer.vx = -1, () => {
+			explorer.vx = !right.isDown
+				? 0
+				: explorer.vx;
 			everclick();
-		}
-	),
-		up = Keyboard(38,
-			() => explorer.vy = -1,
-			() => {
-				explorer.vy = !down.isDown ? 0 : explorer.vy;
-				everclick();
-			}
-		),
-		right = Keyboard(39,
-			() => explorer.vx = 1,
-			() => {
-				explorer.vx = !left.isDown ? 0 : explorer.vx;
-				everclick();
-			}
-		),
-		down = Keyboard(40,
-			() => explorer.vy = 1,
-			() => {
-				explorer.vy = !up.isDown ? 0 : explorer.vy;
-				everclick();
-			}
-		);
+		}),
+		up = Keyboard(38, () => explorer.vy = -1, () => {
+			explorer.vy = !down.isDown
+				? 0
+				: explorer.vy;
+			everclick();
+		}),
+		right = Keyboard(39, () => explorer.vx = 1, () => {
+			explorer.vx = !left.isDown
+				? 0
+				: explorer.vx;
+			everclick();
+		}),
+		down = Keyboard(40, () => explorer.vy = 1, () => {
+			explorer.vy = !up.isDown
+				? 0
+				: explorer.vy;
+			everclick();
+		});
 		let renderelement = ReactDOM.findDOMNode(this.refs.renderer);
 
 		//Create the renderer

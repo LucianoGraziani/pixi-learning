@@ -11,7 +11,9 @@ const routes = {
 	EX10: 'ex10-game-states',
 	EX11: 'ex11-keyboard-events',
 	EX12: 'ex12-local-global-positions',
-	EX13: 'ex13-to-edit',
+	EX13: 'ex13-graphics-primitives',
+	EX14: 'ex14-text',
+	EX15: 'ex15-collision-detection',
 };
 
 export default routes;

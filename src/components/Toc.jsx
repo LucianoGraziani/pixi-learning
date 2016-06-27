@@ -21,9 +21,16 @@ const Toc = () => {
 					<TocElement link={routes.EX8} description="Example 08: Basic movement"/>
 					<TocElement link={routes.EX9} description="Example 09: Using velocity properties"/>
 				</TocGroup>
-				<TocElement link={routes.EX10} description="Example 10: Game state"/>
-				<TocElement link={routes.EX11} description="Example 11: Keyboard events"/>
-				<TocElement link={routes.EX12} description="Example 12: Local and global position check"/>
+				<TocGroup title="Game tools">
+					<TocElement link={routes.EX10} description="Example 10: Game state"/>
+					<TocElement link={routes.EX11} description="Example 11: Keyboard events"/>
+				</TocGroup>
+				<TocGroup title="Graphics and position">
+					<TocElement link={routes.EX12} description="Example 12: Local and global position check"/>
+					<TocElement link={routes.EX13} description="Example 13: Graphics Primitives"/>
+					<TocElement link={routes.EX14} description="Example 14: Displaying Text"/>
+				</TocGroup>
+				<TocElement link={routes.EX15} description="Example 15: Collision Detection"/>
 			</ul>
 		</div>
 	);
