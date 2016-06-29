@@ -14,6 +14,7 @@ const routes = {
 	EX13: 'ex13-graphics-primitives',
 	EX14: 'ex14-text',
 	EX15: 'ex15-collision-detection',
+	GAME: 'treasure-hunter-game',
 };
 
 export default routes;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 let Main = ({children}) => {
 	return (
 		<div>
@@ -11,7 +11,7 @@ let Main = ({children}) => {
 	);
 };
 Main.propTypes = {
-	children: React.PropTypes.element.isRequired,
+	children: PropTypes.element.isRequired,
 };
 
 export default Main;

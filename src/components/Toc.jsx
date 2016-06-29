@@ -32,6 +32,9 @@ const Toc = () => {
 				</TocGroup>
 				<TocElement link={routes.EX15} description="Example 15: Collision Detection"/>
 			</ul>
+			<ul>
+				<TocElement link={routes.GAME} description="Final test: Treasure Hunter Game"/>
+			</ul>
 		</div>
 	);
 };

@@ -1,3 +1,9 @@
-// Set up your root reducer here...
 import { combineReducers } from 'redux';
-export default combineReducers;
+
+import gameState from './gameStateReducer';
+
+const rootReducer = combineReducers({
+	gameState,
+});
+
+export default rootReducer;
