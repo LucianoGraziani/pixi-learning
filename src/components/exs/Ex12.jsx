@@ -99,7 +99,7 @@ export default class Ex12 extends React.Component {
 		renderer.autoResize = true;
 
 		pixiLoader.add(treasureHunterReference).load(function setup() {
-			treasureHunter = PIXI.loader.resources[treasureHunterReference].textures;
+			treasureHunter = pixiLoader.resources[treasureHunterReference].textures;
 
 			dungeon = new Sprite(treasureHunter['dungeon.png']);
 			stage.addChild(dungeon);

@@ -77,7 +77,7 @@ export default class Ex11 extends React.Component {
 		renderer.autoResize = true;
 
 		pixiLoader.add(require('images/dungeon/treasureHunter.json')).load(function setup() {
-			treasureHunter = PIXI.loader.resources[require('images/dungeon/treasureHunter.json')].textures;
+			treasureHunter = pixiLoader.resources[require('images/dungeon/treasureHunter.json')].textures;
 
 			dungeon = new Sprite(treasureHunter['dungeon.png']);
 			stage.addChild(dungeon);
