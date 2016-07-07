@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PIXI, {loader as pixiLoader, Container, Sprite, Graphics, Text} from 'pixi.js';
+import PIXI, {loader as pixiLoader, Container} from 'pixi.js';
 
 import Cat from 'components/game/Cat';
 
@@ -13,14 +13,14 @@ function gameLoop() {
 	//Render the stage
 	renderer.render(stage);
 }
+// //
+// function play() {
+// 	//All the game logic goes here
+// }
 //
-function play() {
-	//All the game logic goes here
-}
-
-function end() {
-	//All the code that should run at the end of the game
-}
+// function end() {
+// 	//All the code that should run at the end of the game
+// }
 
 //The game's helper functions:
 //`keyboard`, `hitTestRectangle`, `contain` and `randomInt`

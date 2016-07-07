@@ -13,7 +13,6 @@ export default function Keyboard(keyCode, pressHandler, releaseHandler) {
 		if (event.keyCode !== key.code) {
 			return;
 		}
-		event.preventDefault();
 
 		if (key.isUp && key.press) key.press();
 		key.isDown = true;
@@ -25,7 +24,6 @@ export default function Keyboard(keyCode, pressHandler, releaseHandler) {
 		if (event.keyCode !== key.code) {
 			return;
 		}
-		event.preventDefault();
 
 		if (key.isDown && key.release) key.release();
 		key.isDown = false;
