@@ -18,5 +18,17 @@ export default {
 		message.y = renderer.height / 2 - 32;
 		gameOverScene.addChild(message);
 
+		this.message = message;
+		this.gameOverScene = gameOverScene;
+	},
+	getEndGameCallback(gameScene) {
+		let {gameOverScene, message} = this;
+		return function endGame() {
+			gameScene.visible = false;
+			gameOverScene.visible = true;
+			message.text = 'You lost!';
+
+			// TODO Reset all game state.
+		};
 	},
 };

@@ -4,6 +4,7 @@ import {randomInt} from 'tools/helpers';
 import contain from 'tools/contain';
 import {StageProps} from 'components/game/Stage';
 import {LoopEvent} from 'tools/GameLooper';
+import collisionSystem from 'tools/collision-system';
 
 export default class Blob {
 	constructor(id, renderer, stage, treasureHunter) {
@@ -26,6 +27,17 @@ export default class Blob {
 				self.sprite.vy *= -1;
 			}
 			self.sprite.y += self.sprite.vy;
+		});
+	}
+	addCollision(explorer, healthBar) {
+		let {sprite} = this;
+		LoopEvent.add(function collisionBlobExplorer() {
+			if(collisionSystem(explorer, sprite)) {
+				explorer.alpha = 0.5;
+				healthBar.outer.width -= 1;
+			} else {
+				explorer.alpha = 1;
+			}
 		});
 	}
 }

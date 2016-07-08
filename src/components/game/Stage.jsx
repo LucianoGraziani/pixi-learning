@@ -11,7 +11,7 @@ export const StageProps = {
 	height: 512,
 	boundaries: {
 		x: 32,
-		y: 10,
+		y: 15,
 		width: 480,
 		height: 480,
 	},
@@ -41,8 +41,8 @@ export default class Stage extends React.Component {
 		renderer.render(stage);
 		renderer.autoResize = true;
 
-		Game.mount(renderer, stage);
 		GameOver.mount(renderer, stage);
+		Game.mount(renderer, stage, GameOver.getEndGameCallback(Game.getGameScene(renderer, stage)));
 
 		gameLoop(renderer, stage);
 	}

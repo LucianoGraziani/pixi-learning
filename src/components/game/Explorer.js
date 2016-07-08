@@ -38,5 +38,7 @@ export default {
 				() => explorer.vy = 1,
 				() => explorer.vy = !up.isDown ? 0 : explorer.vy
 			);
+
+		return explorer;
 	},
 };

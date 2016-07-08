@@ -6,12 +6,18 @@ import Explorer from 'components/game/Explorer';
 import Door from 'components/game/Door';
 import Treasure from 'components/game/Treasure';
 import Blob from 'components/game/Blob';
+import HealthBar from 'components/game/HealthBar';
 
 export default {
-	mount(renderer, stage) {
+	getGameScene(renderer, stage) {
 		let gameScene = new Container();
 		stage.addChild(gameScene);
+		this.gameScene = gameScene;
 
+		return gameScene;
+	},
+	mount(renderer, stage, endGameCallback) {
+		let {gameScene} = this;
 		pixiLoader.add(treasureHunterURL).load(function setup() {
 			let treasureHunter = pixiLoader.resources[treasureHunterURL].textures,
 				dungeon = new Sprite(treasureHunter['dungeon.png']);
@@ -25,8 +31,15 @@ export default {
 				blobs.push(new Blob(i, renderer, gameScene, treasureHunter));
 			}
 
-			Explorer.mount(renderer, gameScene, treasureHunter);
+			let explorer = Explorer.mount(renderer, gameScene, treasureHunter);
 			Treasure.mount(renderer, gameScene, treasureHunter);
+			let healthBar =  HealthBar.mount(stage, gameScene);
+
+			blobs.forEach((blob) => {
+				blob.addCollision(explorer, healthBar);
+			});
+
+			HealthBar.addEndGameCallback(endGameCallback);
 		});
 	},
 };
