@@ -1,6 +1,6 @@
 {
   "name": "pixi-learning",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Pixi learning running examples",
   "scripts": {
     "remove-demo": "babel-node tools/removeDemo.js",

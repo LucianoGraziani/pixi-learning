@@ -32,7 +32,8 @@ export default {
 			}
 
 			let explorer = Explorer.mount(renderer, gameScene, treasureHunter);
-			Treasure.mount(renderer, gameScene, treasureHunter);
+			let treasure = Treasure.mount(renderer, gameScene, treasureHunter);
+			Treasure.addTreasureEvent(explorer);
 			let healthBar =  HealthBar.mount(stage, gameScene);
 
 			blobs.forEach((blob) => {
@@ -40,6 +41,7 @@ export default {
 			});
 
 			HealthBar.addEndGameCallback(endGameCallback);
+			Door.addEndGameCallback(treasure, endGameCallback);
 		});
 	},
 };

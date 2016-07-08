@@ -1,10 +1,10 @@
-import {DisplayObjectContainer, Graphics} from 'pixi.js';
+import {Container, Graphics} from 'pixi.js';
 
 import {LoopEvent} from 'tools/GameLooper';
 
 export default {
 	mount(StageProps, gameScene) {
-		let healthBar = new DisplayObjectContainer();
+		let healthBar = new Container();
 		healthBar.position.set(StageProps.width - 170, 6);
 		gameScene.addChild(healthBar);
 
@@ -30,7 +30,7 @@ export default {
 		let {healthBar} = this;
 		let id = LoopEvent.add(function checkForEnd() {
 			if (healthBar.outer.width < 0) {
-				callback();
+				callback(false);
 				LoopEvent.remove(id);
 			}
 		});

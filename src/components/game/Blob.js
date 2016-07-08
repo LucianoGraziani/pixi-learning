@@ -34,7 +34,7 @@ export default class Blob {
 		LoopEvent.add(function collisionBlobExplorer() {
 			if(collisionSystem(explorer, sprite)) {
 				explorer.alpha = 0.5;
-				healthBar.outer.width -= 1;
+				healthBar.outer.width -= 3;
 			} else {
 				explorer.alpha = 1;
 			}

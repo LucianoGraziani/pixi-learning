@@ -23,10 +23,10 @@ export default {
 	},
 	getEndGameCallback(gameScene) {
 		let {gameOverScene, message} = this;
-		return function endGame() {
+		return function endGame(win) {
 			gameScene.visible = false;
 			gameOverScene.visible = true;
-			message.text = 'You lost!';
+			message.text = win ? 'You won :D!' : 'You lost :(!';
 
 			// TODO Reset all game state.
 		};
