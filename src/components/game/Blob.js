@@ -1,19 +1,31 @@
 import {Sprite} from 'pixi.js';
 
 import {randomInt} from 'tools/helpers';
+import contain from 'tools/contain';
+import {StageProps} from 'components/game/Stage';
+import {LoopEvent} from 'tools/GameLooper';
 
-export default function Blob(id, renderer, stage, treasureHunter) {
+export default class Blob {
+	constructor(id, renderer, stage, treasureHunter) {
+		let self = this,
+			spacing = 48,
+			xOffset = 150,
+			speed = 2,
+			direction = id % 2 === 0 ? 2 : -2;
 
-	let blob = new Sprite(treasureHunter['blob.png']),
-		spacing = 48,
-		xOffset = 150;
+		this.sprite = new Sprite(treasureHunter['blob.png']);
 
-	blob.x = spacing * id + xOffset;
-	blob.y = randomInt(0, stage.height - blob.height);
+		this.sprite.x = spacing * id + xOffset;
+		this.sprite.y = randomInt(StageProps.boundaries.y, StageProps.boundaries.height - this.sprite.height);
+		this.sprite.vy = speed * direction;
+		stage.addChild(this.sprite);
 
-	stage.addChild(blob);
-
-	return {
-		instance: blob,
-	};
+		LoopEvent.add(function spriteEvent() {
+			let hitWall = contain(self.sprite, StageProps.boundaries);
+			if (hitWall === 'top' || hitWall === 'bottom') {
+				self.sprite.vy *= -1;
+			}
+			self.sprite.y += self.sprite.vy;
+		});
+	}
 }

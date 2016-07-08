@@ -2,6 +2,8 @@ import {Sprite} from 'pixi.js';
 
 import Keyboard from 'tools/keyboard';
 import {LoopEvent} from 'tools/GameLooper';
+import contain from 'tools/contain';
+import {StageProps} from 'components/game/Stage';
 
 export default {
 	mount(renderer, stage, treasureHunter) {
@@ -15,8 +17,9 @@ export default {
 		renderer.render(stage);
 
 		LoopEvent.add(function explorerEvent() {
-			explorer.x += explorer.vx;
-			explorer.y += explorer.vy;
+			let hitWall = contain(explorer, StageProps.boundaries);
+			explorer.x += hitWall === 'left' || hitWall === 'right' ? 0 : explorer.vx;
+			explorer.y += hitWall === 'top' || hitWall === 'bottom' ? 0 : explorer.vy;
 		});
 
 		let left = Keyboard(37,

@@ -1,4 +1,4 @@
-import {loader as pixiLoader, Sprite} from 'pixi.js';
+import {loader as pixiLoader, Container, Sprite} from 'pixi.js';
 
 import 'images/dungeon/treasureHunter.png';
 import treasureHunterURL from 'images/dungeon/treasureHunter.json';
@@ -9,23 +9,24 @@ import Blob from 'components/game/Blob';
 
 export default {
 	mount(renderer, stage) {
+		let gameScene = new Container();
+		stage.addChild(gameScene);
+
 		pixiLoader.add(treasureHunterURL).load(function setup() {
 			let treasureHunter = pixiLoader.resources[treasureHunterURL].textures,
 				dungeon = new Sprite(treasureHunter['dungeon.png']);
-			stage.addChild(dungeon);
+			gameScene.addChild(dungeon);
 
-			renderer.render(stage);
-
-			Door.mount(renderer, stage, treasureHunter);
+			Door.mount(renderer, gameScene, treasureHunter);
 
 			let numberOfBlobs = 6,
 				blobs = [];
 			for (let i = 0; i < numberOfBlobs; i++) {
-				blobs.push(new Blob(i, renderer, stage, treasureHunter));
+				blobs.push(new Blob(i, renderer, gameScene, treasureHunter));
 			}
 
-			Explorer.mount(renderer, stage, treasureHunter);
-			Treasure.mount(renderer, stage, treasureHunter);
+			Explorer.mount(renderer, gameScene, treasureHunter);
+			Treasure.mount(renderer, gameScene, treasureHunter);
 		});
 	},
 };
