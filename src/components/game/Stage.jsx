@@ -7,6 +7,7 @@ import GameOver from 'components/game/GameOver';
 import gameLoop from 'tools/GameLooper';
 
 export const StageProps = {
+	backgroundColor: 0x000000,
 	width: 512,
 	height: 512,
 	boundaries: {
@@ -30,7 +31,7 @@ export default class Stage extends React.Component {
 		let renderelement = ReactDOM.findDOMNode(this.refs.renderer);
 		renderer = PIXI.autoDetectRenderer(StageProps.width, StageProps.height, {
 			view: renderelement,
-			backgroundColor: 0x000000,
+			backgroundColor: StageProps.backgroundColor,
 			antialias: false,
 			transparent: false,
 			resolution: 1,
